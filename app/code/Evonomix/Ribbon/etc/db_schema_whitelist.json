@@ -1,0 +1,25 @@
+{
+    "evonomix_ribbon": {
+        "column": {
+            "ribbon_id": true,
+            "title": true,
+            "description": true,
+            "link": true,
+            "band_color": true,
+            "start_date": true,
+            "end_date": true,
+            "display_pages": true,
+            "is_active": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        },
+        "index": {
+            "IDX_EVONOMIX_RIBBON_ACTIVE": true,
+            "IDX_EVONOMIX_RIBBON_DATES": true
+        }
+    }
+}
+

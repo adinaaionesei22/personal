@@ -1,0 +1,22 @@
+{
+    "name": "evonomix/module-ribbon",
+    "description": "Magento 2 module for displaying configurable ribbons on shop pages",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "proprietary",
+    "require": {
+        "php": "~7.4.0||~8.1.0||~8.2.0",
+        "magento/framework": "*",
+        "magento/module-backend": "*",
+        "magento/module-store": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Evonomix\\Ribbon\\": ""
+        }
+    }
+}
+

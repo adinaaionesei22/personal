@@ -1,0 +1,31 @@
+<?php
+/**
+ * Evonomix Ribbon Template
+ *
+ * @var \Evonomix\Ribbon\Block\Ribbon $block
+ */
+$ribbons = $block->getActiveRibbons();
+?>
+<?php if (!empty($ribbons)): ?>
+    <?php foreach ($ribbons as $ribbon): ?>
+        <div class="evonomix-ribbon" style="background-color: <?= $block->escapeHtmlAttr($ribbon->getBandColor()) ?>;">
+            <div class="evonomix-ribbon-content">
+                <?php if ($ribbon->getLink()): ?>
+                    <a href="<?= $block->escapeUrl($ribbon->getLink()) ?>" class="evonomix-ribbon-link">
+                <?php endif; ?>
+                <div class="evonomix-ribbon-text">
+                    <?php if ($ribbon->getTitle()): ?>
+                        <strong class="evonomix-ribbon-title"><?= $block->escapeHtml($ribbon->getTitle()) ?></strong>
+                    <?php endif; ?>
+                    <?php if ($ribbon->getDescription()): ?>
+                        <span class="evonomix-ribbon-description"><?= $block->escapeHtml($ribbon->getDescription()) ?></span>
+                    <?php endif; ?>
+                </div>
+                <?php if ($ribbon->getLink()): ?>
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+

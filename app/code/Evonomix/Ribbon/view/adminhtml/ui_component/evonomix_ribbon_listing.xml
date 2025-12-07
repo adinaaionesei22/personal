@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                evonomix_ribbon_listing.evonomix_ribbon_listing_data_source
+            </item>
+            <item name="deps" xsi:type="string">
+                evonomix_ribbon_listing.evonomix_ribbon_listing_data_source
+            </item>
+        </item>
+        <item name="spinner" xsi:type="string">evonomix_ribbon_columns</item>
+        <item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="name" xsi:type="string">add</item>
+                <item name="label" xsi:type="string" translate="true">Add Ribbon</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="string">*/*/edit</item>
+            </item>
+        </item>
+    </argument>
+    <dataSource name="evonomix_ribbon_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">ribbon_id</param>
+            </storageConfig>
+        </settings>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="evonomix_ribbon_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>ribbon_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="evonomix_ribbon_columns">
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">ribbon_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+        <column name="ribbon_id">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">ID</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="title">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Title</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="band_color">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Band Color</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="start_date">
+            <settings>
+                <filter>dateRange</filter>
+                <label translate="true">Start Date</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="end_date">
+            <settings>
+                <filter>dateRange</filter>
+                <label translate="true">End Date</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="display_pages" class="Evonomix\Ribbon\Ui\Component\Column\DisplayPages">
+            <settings>
+                <filter>select</filter>
+                <label translate="true">Display Pages</label>
+                <options class="Evonomix\Ribbon\Model\Config\DisplayPages"/>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="is_active" class="Evonomix\Ribbon\Ui\Component\Column\Status">
+            <settings>
+                <filter>select</filter>
+                <label translate="true">Status</label>
+                <options class="Magento\Config\Model\Config\Source\Yesno"/>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Evonomix\Ribbon\Ui\Component\Listing\Column\Actions">
+            <settings>
+                <indexField>ribbon_id</indexField>
+                <resizeEnabled>false</resizeEnabled>
+                <resizeDefaultWidth>107</resizeDefaultWidth>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>
+
